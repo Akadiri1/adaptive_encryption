@@ -1,0 +1,5 @@
+pycryptodome
+psutil
+fastapi
+uvicorn[standard]
+pydantic

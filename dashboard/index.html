@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptive Encryption System for Fog Computing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-titles">
+                <div class="brand-badge">⚡ Fog Computing Security Core</div>
+                <h1 class="gradient-text">Adaptive Encryption System</h1>
+                <p class="subtitle">Real-time Context-Aware Cryptographic Selection Engine</p>
+            </div>
+            <div class="header-controls">
+                <div class="connection-status">
+                    <span class="status-dot online" id="connection-dot"></span>
+                    <span id="connection-text">System Online</span>
+                </div>
+                <button class="btn btn-primary" onclick="runSimulation()">
+                    <span>▶ Run Simulation</span>
+                </button>
+                <button class="btn btn-secondary" onclick="runBenchmark()">
+                    <span>📊 Run Benchmark</span>
+                </button>
+                <button class="btn btn-outline" onclick="fetchNodes()">
+                    <span>🔄 Refresh Nodes</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Key Metrics Bar -->
+        <section class="metrics-bar">
+            <div class="metric-card">
+                <div class="metric-icon">📦</div>
+                <div class="metric-content">
+                    <div class="metric-label">Packets Processed</div>
+                    <div class="metric-value" id="metric-packets">0</div>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">⏱️</div>
+                <div class="metric-content">
+                    <div class="metric-label">Avg Encrypt Time</div>
+                    <div class="metric-value"><span id="metric-time">0.0</span> <span class="unit">ms</span></div>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">🔐</div>
+                <div class="metric-content">
+                    <div class="metric-label">Active Ciphers</div>
+                    <div class="metric-value" id="metric-algos">0</div>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">🚀</div>
+                <div class="metric-content">
+                    <div class="metric-label">System Throughput</div>
+                    <div class="metric-value"><span id="metric-throughput">0.0</span> <span class="unit">MB/s</span></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="main-grid">
+            <!-- Left Column -->
+            <div class="grid-left" style="display: flex; flex-direction: column; gap: 1.75rem;">
+                <!-- System Architecture Flow -->
+                <section class="glass-panel">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="title-icon">🌐</span>
+                            <span>System Architecture</span>
+                        </div>
+                    </div>
+                    <div class="architecture-diagram">
+                        <div class="layer edge-layer">
+                            <h3>Edge Layer</h3>
+                            <div class="device-icons">
+                                <div class="device" title="IoT Sensor">📱</div>
+                                <div class="device" title="Smart Camera">💻</div>
+                                <div class="device" title="Health Monitor">⌚</div>
+                            </div>
+                        </div>
+                        <div class="data-flow flow-1">
+                            <div class="particle cyan"></div>
+                            <div class="particle violet"></div>
+                            <div class="particle green"></div>
+                        </div>
+                        <div class="layer fog-layer">
+                            <h3>Fog Layer</h3>
+                            <div class="node-icons">
+                                <div class="node" title="Adaptive Fog Node">☁️</div>
+                                <div class="node" title="Policy Core">⚡</div>
+                            </div>
+                        </div>
+                        <div class="data-flow flow-2">
+                            <div class="particle cyan"></div>
+                            <div class="particle violet"></div>
+                        </div>
+                        <div class="layer cloud-layer">
+                            <h3>Cloud Layer</h3>
+                            <div class="cloud-icon" title="Encrypted Storage">🌩️</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Fog Nodes Status Panel -->
+                <section class="glass-panel">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="title-icon">🖥️</span>
+                            <span>Fog Nodes Resource Status</span>
+                        </div>
+                    </div>
+                    <div class="nodes-grid" id="nodes-container">
+                        <div class="loading-skeleton">Loading node states...</div>
+                    </div>
+                </section>
+                
+                <!-- Decrypt Interactive Demo -->
+                <section class="glass-panel">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="title-icon">🔓</span>
+                            <span>Decryption Verification Demo</span>
+                        </div>
+                    </div>
+                    <div class="decrypt-controls">
+                        <select id="packet-select" class="custom-select">
+                            <option value="">Select an encrypted packet to decrypt...</option>
+                        </select>
+                        <button class="btn btn-primary" onclick="handleDecrypt()">Decrypt</button>
+                    </div>
+                    <div class="decrypt-result" id="decrypt-result">
+                        Select a packet above and click Decrypt to test the end-to-end round trip.
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column -->
+            <div class="grid-right" style="display: flex; flex-direction: column; gap: 1.75rem;">
+                <!-- Adaptive Policy Decision Matrix -->
+                <section class="glass-panel">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="title-icon">🎯</span>
+                            <span>Adaptive Policy Decision Matrix</span>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table" id="policy-table">
+                            <thead>
+                                <tr>
+                                    <th>Sensitivity</th>
+                                    <th>Node Capacity</th>
+                                    <th>Selected Cipher</th>
+                                    <th>Operational Rationale</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Injected dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Live Data Flow Table -->
+                <section class="glass-panel">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="title-icon">⚡</span>
+                            <span>Live Data Flow & Metrics</span>
+                        </div>
+                    </div>
+                    <div class="table-container scrollable">
+                        <table class="data-table" id="results-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Sens.</th>
+                                    <th>Size</th>
+                                    <th>Node</th>
+                                    <th>Algorithm</th>
+                                    <th>Encrypt (ms)</th>
+                                    <th>Compute (ms)</th>
+                                    <th>Throughput</th>
+                                </tr>
+                            </thead>
+                            <tbody id="results-body">
+                                <!-- Injected dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Performance Analytics Charts -->
+        <section class="glass-panel">
+            <div class="panel-header">
+                <div class="panel-title">
+                    <span class="title-icon">📈</span>
+                    <span>Performance Analytics</span>
+                </div>
+            </div>
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <h3>Encryption Time vs Data Size</h3>
+                    <canvas id="chart-time"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Throughput Comparison</h3>
+                    <canvas id="chart-throughput"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Compute Cost by Algorithm</h3>
+                    <canvas id="chart-cpu"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Adaptive vs Fixed Strategy (Total Encryption Time)</h3>
+                    <canvas id="chart-comparison"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <footer class="dashboard-footer">
+            <p>&copy; 2026 Adaptive Encryption System for Fog Computing • University Defense & Evaluation Dashboard</p>
+        </footer>
+    </div>
+    
+    <div id="toast-container" class="toast-container"></div>
+</body>
+</html>

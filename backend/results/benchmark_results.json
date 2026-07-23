@@ -1,0 +1,122 @@
+{
+    "CHACHA20_POLY1305": {
+        "1KB": {
+            "avg_encrypt_ms": 0.4138,
+            "avg_decrypt_ms": 0.2163,
+            "avg_throughput_mbps": 2.3601,
+            "avg_cpu_ms": 0.0,
+            "avg_memory_mb": 0.0
+        },
+        "10KB": {
+            "avg_encrypt_ms": 0.2428,
+            "avg_decrypt_ms": 0.2406,
+            "avg_throughput_mbps": 40.2242,
+            "avg_cpu_ms": 0.0,
+            "avg_memory_mb": 0.0
+        },
+        "100KB": {
+            "avg_encrypt_ms": 1.3591,
+            "avg_decrypt_ms": 1.456,
+            "avg_throughput_mbps": 71.8536,
+            "avg_cpu_ms": 0.0,
+            "avg_memory_mb": 0.0398
+        },
+        "1MB": {
+            "avg_encrypt_ms": 12.7763,
+            "avg_decrypt_ms": 14.9969,
+            "avg_throughput_mbps": 78.27,
+            "avg_cpu_ms": 15.625,
+            "avg_memory_mb": 0.2008
+        }
+    },
+    "AES_128_GCM": {
+        "1KB": {
+            "avg_encrypt_ms": 0.3003,
+            "avg_decrypt_ms": 0.2516,
+            "avg_throughput_mbps": 3.2515,
+            "avg_cpu_ms": 0.0,
+            "avg_memory_mb": 0.0008
+        },
+        "10KB": {
+            "avg_encrypt_ms": 0.3905,
+            "avg_decrypt_ms": 0.4368,
+            "avg_throughput_mbps": 25.0067,
+            "avg_cpu_ms": 0.0,
+            "avg_memory_mb": 0.0008
+        },
+        "100KB": {
+            "avg_encrypt_ms": 0.7102,
+            "avg_decrypt_ms": 0.9261,
+            "avg_throughput_mbps": 137.4975,
+            "avg_cpu_ms": 3.125,
+            "avg_memory_mb": 0.0008
+        },
+        "1MB": {
+            "avg_encrypt_ms": 3.3549,
+            "avg_decrypt_ms": 3.4293,
+            "avg_throughput_mbps": 298.075,
+            "avg_cpu_ms": 3.125,
+            "avg_memory_mb": 0.2008
+        }
+    },
+    "AES_256_GCM": {
+        "1KB": {
+            "avg_encrypt_ms": 0.3936,
+            "avg_decrypt_ms": 0.4349,
+            "avg_throughput_mbps": 2.4812,
+            "avg_cpu_ms": 3.125,
+            "avg_memory_mb": 0.0
+        },
+        "10KB": {
+            "avg_encrypt_ms": 0.4081,
+            "avg_decrypt_ms": 0.2854,
+            "avg_throughput_mbps": 23.9318,
+            "avg_cpu_ms": 0.0,
+            "avg_memory_mb": 0.0008
+        },
+        "100KB": {
+            "avg_encrypt_ms": 0.424,
+            "avg_decrypt_ms": 0.4102,
+            "avg_throughput_mbps": 230.3431,
+            "avg_cpu_ms": 0.0,
+            "avg_memory_mb": 0.0
+        },
+        "1MB": {
+            "avg_encrypt_ms": 4.1556,
+            "avg_decrypt_ms": 4.415,
+            "avg_throughput_mbps": 240.6391,
+            "avg_cpu_ms": 3.125,
+            "avg_memory_mb": 0.2008
+        }
+    },
+    "HYBRID_RSA_AES256": {
+        "1KB": {
+            "avg_encrypt_ms": 3.0929,
+            "avg_decrypt_ms": 15.8677,
+            "avg_throughput_mbps": 0.3157,
+            "avg_cpu_ms": 3.125,
+            "avg_memory_mb": 0.0008
+        },
+        "10KB": {
+            "avg_encrypt_ms": 3.9574,
+            "avg_decrypt_ms": 17.4403,
+            "avg_throughput_mbps": 2.4677,
+            "avg_cpu_ms": 0.0,
+            "avg_memory_mb": 0.0
+        },
+        "100KB": {
+            "avg_encrypt_ms": 3.2273,
+            "avg_decrypt_ms": 18.3561,
+            "avg_throughput_mbps": 30.2596,
+            "avg_cpu_ms": 6.25,
+            "avg_memory_mb": 0.0
+        },
+        "1MB": {
+            "avg_encrypt_ms": 8.6088,
+            "avg_decrypt_ms": 17.3448,
+            "avg_throughput_mbps": 116.1605,
+            "avg_cpu_ms": 6.25,
+            "avg_memory_mb": 0.2008
+        }
+    }
+}
