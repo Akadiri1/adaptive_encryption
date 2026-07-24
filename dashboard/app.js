@@ -3,7 +3,8 @@
  * Connects to FastAPI backend at localhost:8000
  */
 
-const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:8000/api' : '/api';
+const isVercel = window.location.hostname.endsWith('.vercel.app');
+const API_BASE = isVercel ? '/api' : 'http://localhost:8000/api';
 
 // ─── State ────────────────────────────────────────────────────────────────
 let state = {
