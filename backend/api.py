@@ -8,7 +8,9 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from typing import Optional
 import base64
-import os
+import sys
+sys.path.append(os.path.dirname(__file__))
+
 from simulator import Simulator
 from benchmark import BenchmarkRunner
 from policy_engine import PolicyEngine
