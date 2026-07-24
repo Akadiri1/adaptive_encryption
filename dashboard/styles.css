@@ -840,6 +840,11 @@ h1, h2, h3, h4 {
         box-sizing: border-box;
     }
     
+    .data-table th, .data-table td {
+        padding: 0.6rem 0.5rem;
+        font-size: 0.75rem;
+    }
+    
     body {
         overflow-x: hidden;
         width: 100%;
